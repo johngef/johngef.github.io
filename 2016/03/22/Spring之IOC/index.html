@@ -61,7 +61,7 @@
 
 
 装配一个bean
-参数注入
+属性注入
 方法注入
 bean之间的关系
 bean作用范围
@@ -76,7 +76,7 @@ bean作用范围
 
 
 装配一个bean
-参数注入
+属性注入
 方法注入
 bean之间的关系
 bean作用范围
@@ -84,14 +84,14 @@ bean作用范围
 
 装配一个bean首先是配置一下spring环境，现在的spring版本已经来到了4了，这是jar">
 <meta property="og:image" content="http://7xs53w.com1.z0.glb.clouddn.com/Snip20160322_17.png">
-<meta property="og:updated_time" content="2016-03-22T07:17:43.000Z">
+<meta property="og:updated_time" content="2016-03-22T10:24:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring之IOC">
 <meta name="twitter:description" content="首先说一下什么是IOC，英文为Inversion of Control，翻译成中文就是控制反转，当然有的人为了更好的理解IOC，把它称作为依赖注入，对IOC更详细的说明看一下百度百科就行了，下面主要说一下IOC的应用：
 
 
 装配一个bean
-参数注入
+属性注入
 方法注入
 bean之间的关系
 bean作用范围
@@ -151,7 +151,7 @@ bean作用范围
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">my Blog</p>
+  <p class="site-subtitle">专注java30年</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -308,13 +308,13 @@ bean作用范围
 <blockquote>
 <ul>
 <li>装配一个bean</li>
-<li>参数注入</li>
+<li>属性注入</li>
 <li>方法注入</li>
 <li>bean之间的关系</li>
 <li>bean作用范围</li>
 </ul>
 </blockquote>
-<h3 id="装配一个bean"><a href="#装配一个bean" class="headerlink" title="装配一个bean"></a>装配一个bean</h3><p>首先是配置一下spring环境，现在的spring版本已经来到了4了，这是jar下载<a href="http://repo.spring.io/release/org/springframework/spring/" target="_blank" rel="external">地址</a>，下载之后呢，你会看到非常多的jar包，但核心包不多，如下图：</p>
+<h2 id="装配一个bean"><a href="#装配一个bean" class="headerlink" title="装配一个bean"></a>装配一个bean</h2><p>首先是配置一下spring环境，现在的spring版本已经来到了4了，这是jar下载<a href="http://repo.spring.io/release/org/springframework/spring/" target="_blank" rel="external">地址</a>，下载之后呢，你会看到非常多的jar包，但核心包不多，如下图：</p>
 <p><img src="http://7xs53w.com1.z0.glb.clouddn.com/Snip20160322_17.png" alt=""></p>
 <p>spring文件夹的jar就是这些核心包，这里呢，我也用到了junit，所以也引进了这个jar包。<br>然后说一下怎么样装配一个bean：<br>首先我们创建一个class文件，叫做Student:</p>
 <pre><code>public class Student {
@@ -392,7 +392,32 @@ bean作用范围
 三月 22, 2016 2:49:51 下午 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
 信息: Loading XML bean definitions from class path resource [spring_config.xml]
 Student [id=1, name=xiaoge, age=0, teacher=null]
-</code></pre><p>明天继续。。。。写</p>
+</code></pre><h2 id="属性注入"><a href="#属性注入" class="headerlink" title="属性注入"></a>属性注入</h2><p>对于属性注入在上面的demo中其实已经涉及到了，但是这只是基本属性注入，但如果是一个对象，或者list或者set或者map呢，如下：</p>
+<h3 id="bean注入"><a href="#bean注入" class="headerlink" title="bean注入"></a>bean注入</h3><pre><code>&lt;bean id=&quot;teacher&quot; class=&quot;com.gefufeng.bean.Teacher&quot;&gt;
+        &lt;property name=&quot;teacherId&quot; value=&quot;1&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;name&quot; value=&quot;葛老师&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+&lt;bean id=&quot;student3&quot; class=&quot;com.gefufeng.bean.Student&quot;&gt;
+        &lt;property name=&quot;id&quot; value=&quot;1&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;name&quot; value=&quot;xiaoge&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;teacher&quot; ref=&quot;teacher&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><p>这是最常见的一种bean注入方式</p>
+<h3 id="list注入"><a href="#list注入" class="headerlink" title="list注入"></a>list注入</h3><p>比如Student中多了一个List<string> hobbies,属性：</string></p>
+<pre><code>&lt;bean id=&quot;student3&quot; class=&quot;com.gefufeng.bean.Student&quot;&gt;
+        &lt;property name=&quot;id&quot; value=&quot;1&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;name&quot; value=&quot;xiaoge&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;teacher&quot; ref=&quot;teacher&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;hobbies&quot;&gt;
+            &lt;list&gt;
+                &lt;value&gt;打球&lt;/value&gt;
+                &lt;value&gt;游泳&lt;/value&gt;
+                &lt;value&gt;旅游&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><p>set注入和map注入都非常类似</p>
+<h2 id="方法注入"><a href="#方法注入" class="headerlink" title="方法注入"></a>方法注入</h2><p>好吧，其实方法注入我也没用过</p>
 
       
     </div>
@@ -465,7 +490,7 @@ Student [id=1, name=xiaoge, age=0, teacher=null]
                src="/images/avatar.png"
                alt="gefufeng" />
           <p class="site-author-name" itemprop="name">gefufeng</p>
-          <p class="site-description motion-element" itemprop="description">just do it right first time</p>
+          <p class="site-description motion-element" itemprop="description">我们总是太过浮躁，错过了身边太多的风景</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -533,7 +558,7 @@ Student [id=1, name=xiaoge, age=0, teacher=null]
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#装配一个bean"><span class="nav-number">1.</span> <span class="nav-text">装配一个bean</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#装配一个bean"><span class="nav-number">1.</span> <span class="nav-text">装配一个bean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性注入"><span class="nav-number">2.</span> <span class="nav-text">属性注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bean注入"><span class="nav-number">2.1.</span> <span class="nav-text">bean注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list注入"><span class="nav-number">2.2.</span> <span class="nav-text">list注入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法注入"><span class="nav-number">3.</span> <span class="nav-text">方法注入</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
