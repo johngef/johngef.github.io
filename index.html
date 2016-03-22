@@ -216,6 +216,202 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/22/Spring之IOC/" itemprop="url">
+                  Spring之IOC
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-22T13:32:52+08:00" content="2016-03-22">
+              2016-03-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/pring/" itemprop="url" rel="index">
+                    <span itemprop="name">pring</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##Spring之IOC<br>首先说一下什么是IOC，英文为Inversion of Control，翻译成中文就是控制反转，当然有的人为了更好的理解IOC，把它称作为依赖注入，对IOC更详细的说明看一下<a href="http://baike.baidu.com/link?url=nqCaZn6JM9BLV0TH8NJFc4SRQHqV3DGFT3ScHMW_AmHKBLlWao_vYWSxdSomGwhIao7iLvyQosespS8HbNE6kyUVjmyMvP5_jf9YJRboodO" target="_blank" rel="external">百度百科</a>就行了，下面主要说一下IOC的应用：</p>
+<blockquote>
+<ul>
+<li>装配一个bean</li>
+<li>参数注入</li>
+<li>方法注入</li>
+<li>bean之间的关系</li>
+<li>bean作用范围</li>
+</ul>
+</blockquote>
+<p>###装配一个bean<br>首先是配置一下spring环境，现在的spring版本已经来到了4了，这是jar下载<a href="http://repo.spring.io/release/org/springframework/spring/" target="_blank" rel="external">地址</a>，下载之后呢，你会看到非常多的jar包，但核心包不多，如下图：</p>
+<p><img src="http://7xs53w.com1.z0.glb.clouddn.com/Snip20160322_17.png" alt=""></p>
+<p>spring文件夹的jar就是这些核心包，这里呢，我也用到了junit，所以也引进了这个jar包。<br>然后说一下怎么样装配一个bean：<br>首先我们创建一个class文件，叫做Student:</p>
+<pre><code>public class Student {
+    private int id;
+    private String name;
+    private int age;
+    private Teacher teacher;
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Student [id=&quot; + id + &quot;, name=&quot; + name + &quot;, age=&quot; + age + &quot;, teacher=&quot; + teacher + &quot;]&quot;;
+    }
+
+}
+</code></pre><p>然后配置spring的XML文件：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;  
+         xmlns=&quot;http://www.springframework.org/schema/beans&quot;  
+         xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans 
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;
+         &gt; 
+      &lt;bean id = &quot;student&quot; class=&quot;com.gefufeng.bean.Student&quot;&gt;
+          &lt;property name=&quot;id&quot; value = &quot;1&quot;&gt;&lt;/property&gt;
+          &lt;property name=&quot;name&quot; value = &quot;xiaoge&quot;&gt;&lt;/property&gt;
+      &lt;/bean&gt;
+&lt;/beans&gt; 
+</code></pre><p>然后再创建一个junit test case：</p>
+<pre><code>public class T {
+
+    private ApplicationContext applicationContext;
+
+
+    @Before
+    public void setUp() throws Exception {
+        applicationContext = new ClassPathXmlApplicationContext(&quot;spring_config.xml&quot;);
+    }
+
+
+    @Test
+    public void test() {
+        Student student = (Student) applicationContext.getBean(&quot;student&quot;);
+        System.out.println(student);
+    }
+
+}
+</code></pre><p>然后运行你会发现控制台有下面的输出：</p>
+<pre><code>三月 22, 2016 2:49:51 下午     org.springframework.context.support.AbstractApplicationContext prepareRefresh
+信息: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7dc5e7b4: startup date [Tue Mar 22 14:49:51 CST 2016]; root of context hierarchy
+三月 22, 2016 2:49:51 下午 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+信息: Loading XML bean definitions from class path resource [spring_config.xml]
+Student [id=1, name=xiaoge, age=0, teacher=null]
+</code></pre><p>明天继续。。。。写</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/17/My-First-Blog/" itemprop="url">
                   THANKS
                 </a>
@@ -345,7 +541,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -353,7 +549,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
