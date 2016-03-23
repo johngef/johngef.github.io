@@ -57,48 +57,19 @@
 
 
 
-<meta name="description" content="首先说一下什么是IOC，英文为Inversion of Control，翻译成中文就是控制反转，当然有的人为了更好的理解IOC，把它称作为依赖注入，对IOC更详细的说明看一下百度百科就行了，下面主要说一下IOC的应用：
-
-
-装配一个bean
-属性注入
-方法注入
-bean之间的关系
-bean作用范围
-
-
-装配一个bean首先是配置一下spring环境，现在的spring版本已经来到了4了，这是jar">
+<meta name="description" content="AOP简介关于AOP的应用，在日志记录和异常处理时非常常见，举个简单的例子，我们有一个函数，是一段业务逻辑，那我们怎么知道这个函数执行的时候有没有异常或者它的参数是多少，有的人说了，这还不简单，写个LOG不就行了吗，但在一堆逻辑代码中插入许多这样的LOG语句，总是不够好，咱们代码讲究的是高內聚，低耦合，那么AOP就是来解决这些事情的：这张图绿色部分是我们的业务逻辑，那AOP就负责把红色部分和黄色部">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring之IOC">
-<meta property="og:url" content="http://yoursite.com/2016/03/22/Spring之IOC/index.html">
+<meta property="og:title" content="Spring之AOP">
+<meta property="og:url" content="http://yoursite.com/2016/03/23/Spring之AOP/index.html">
 <meta property="og:site_name" content="gefufeng">
-<meta property="og:description" content="首先说一下什么是IOC，英文为Inversion of Control，翻译成中文就是控制反转，当然有的人为了更好的理解IOC，把它称作为依赖注入，对IOC更详细的说明看一下百度百科就行了，下面主要说一下IOC的应用：
-
-
-装配一个bean
-属性注入
-方法注入
-bean之间的关系
-bean作用范围
-
-
-装配一个bean首先是配置一下spring环境，现在的spring版本已经来到了4了，这是jar">
-<meta property="og:image" content="http://7xs53w.com1.z0.glb.clouddn.com/Snip20160322_17.png">
-<meta property="og:updated_time" content="2016-03-22T10:24:57.000Z">
+<meta property="og:description" content="AOP简介关于AOP的应用，在日志记录和异常处理时非常常见，举个简单的例子，我们有一个函数，是一段业务逻辑，那我们怎么知道这个函数执行的时候有没有异常或者它的参数是多少，有的人说了，这还不简单，写个LOG不就行了吗，但在一堆逻辑代码中插入许多这样的LOG语句，总是不够好，咱们代码讲究的是高內聚，低耦合，那么AOP就是来解决这些事情的：这张图绿色部分是我们的业务逻辑，那AOP就负责把红色部分和黄色部">
+<meta property="og:image" content="http://7xs53w.com1.z0.glb.clouddn.com/b90e7bec54e736d12103cbf69a504fc2d562693f.jpg">
+<meta property="og:image" content="http://7xs53w.com1.z0.glb.clouddn.com/Snip20160323_18.png">
+<meta property="og:updated_time" content="2016-03-23T03:48:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring之IOC">
-<meta name="twitter:description" content="首先说一下什么是IOC，英文为Inversion of Control，翻译成中文就是控制反转，当然有的人为了更好的理解IOC，把它称作为依赖注入，对IOC更详细的说明看一下百度百科就行了，下面主要说一下IOC的应用：
-
-
-装配一个bean
-属性注入
-方法注入
-bean之间的关系
-bean作用范围
-
-
-装配一个bean首先是配置一下spring环境，现在的spring版本已经来到了4了，这是jar">
-<meta name="twitter:image" content="http://7xs53w.com1.z0.glb.clouddn.com/Snip20160322_17.png">
+<meta name="twitter:title" content="Spring之AOP">
+<meta name="twitter:description" content="AOP简介关于AOP的应用，在日志记录和异常处理时非常常见，举个简单的例子，我们有一个函数，是一段业务逻辑，那我们怎么知道这个函数执行的时候有没有异常或者它的参数是多少，有的人说了，这还不简单，写个LOG不就行了吗，但在一堆逻辑代码中插入许多这样的LOG语句，总是不够好，咱们代码讲究的是高內聚，低耦合，那么AOP就是来解决这些事情的：这张图绿色部分是我们的业务逻辑，那AOP就负责把红色部分和黄色部">
+<meta name="twitter:image" content="http://7xs53w.com1.z0.glb.clouddn.com/b90e7bec54e736d12103cbf69a504fc2d562693f.jpg">
 
 
 
@@ -116,7 +87,7 @@ bean作用范围
   };
 </script>
 
-  <title> Spring之IOC | gefufeng </title>
+  <title> Spring之AOP | gefufeng </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -246,7 +217,7 @@ bean作用范围
             
             
               
-                Spring之IOC
+                Spring之AOP
               
             
           </h1>
@@ -258,8 +229,8 @@ bean作用范围
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-22T13:32:52+08:00" content="2016-03-22">
-              2016-03-22
+            <time itemprop="dateCreated" datetime="2016-03-23T11:12:07+08:00" content="2016-03-23">
+              2016-03-23
             </time>
           </span>
 
@@ -272,8 +243,8 @@ bean作用范围
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/pring/" itemprop="url" rel="index">
-                    <span itemprop="name">pring</span>
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
                   </a>
                 </span>
 
@@ -304,120 +275,137 @@ bean作用范围
       
 
       
-        <p>首先说一下什么是IOC，英文为Inversion of Control，翻译成中文就是控制反转，当然有的人为了更好的理解IOC，把它称作为依赖注入，对IOC更详细的说明看一下<a href="http://baike.baidu.com/link?url=nqCaZn6JM9BLV0TH8NJFc4SRQHqV3DGFT3ScHMW_AmHKBLlWao_vYWSxdSomGwhIao7iLvyQosespS8HbNE6kyUVjmyMvP5_jf9YJRboodO" target="_blank" rel="external">百度百科</a>就行了，下面主要说一下IOC的应用：</p>
-<blockquote>
-<ul>
-<li>装配一个bean</li>
-<li>属性注入</li>
-<li>方法注入</li>
-<li>bean之间的关系</li>
-<li>bean作用范围</li>
-</ul>
-</blockquote>
-<h2 id="装配一个bean"><a href="#装配一个bean" class="headerlink" title="装配一个bean"></a>装配一个bean</h2><p>首先是配置一下spring环境，现在的spring版本已经来到了4了，这是jar下载<a href="http://repo.spring.io/release/org/springframework/spring/" target="_blank" rel="external">地址</a>，下载之后呢，你会看到非常多的jar包，但核心包不多，如下图：</p>
-<p><img src="http://7xs53w.com1.z0.glb.clouddn.com/Snip20160322_17.png" alt=""></p>
-<p>spring文件夹的jar就是这些核心包，这里呢，我也用到了junit，所以也引进了这个jar包。<br>然后说一下怎么样装配一个bean：<br>首先我们创建一个class文件，叫做Student:</p>
-<pre><code>public class Student {
-    private int id;
-    private String name;
-    private int age;
-    private Teacher teacher;
+        <h2 id="AOP简介"><a href="#AOP简介" class="headerlink" title="AOP简介"></a>AOP简介</h2><p>关于AOP的应用，在日志记录和异常处理时非常常见，举个简单的例子，我们有一个函数，是一段业务逻辑，那我们怎么知道这个函数执行的时候有没有异常或者它的参数是多少，有的人说了，这还不简单，写个LOG不就行了吗，但在一堆逻辑代码中插入许多这样的LOG语句，总是不够好，咱们代码讲究的是高內聚，低耦合，那么AOP就是来解决这些事情的：<br><img src="http://7xs53w.com1.z0.glb.clouddn.com/b90e7bec54e736d12103cbf69a504fc2d562693f.jpg" alt=""><br>这张图绿色部分是我们的业务逻辑，那AOP就负责把红色部分和黄色部分插入到绿色部分当中，最后形成中间那一块的效果。</p>
+<p>主要的功能是:日志记录,性能统计,安全控制,事务处理,异常处理等等。</p>
+<h2 id="AOP应用"><a href="#AOP应用" class="headerlink" title="AOP应用"></a>AOP应用</h2><p>关于AOP的应用说白了就是各种通知：</p>
+<ol>
+<li>前置通知;</li>
+<li>后置通知;</li>
+<li>环绕通知; </li>
+<li>返回通知;</li>
+<li>异常通知;</li>
+</ol>
+<p>那我们经常用到的有前置通知，后置通知和异常通知，下面是一个demo：</p>
+<p><img src="http://7xs53w.com1.z0.glb.clouddn.com/Snip20160323_18.png" alt=""></p>
+<p>在我们创建了StudentService，这是一个Interface：</p>
+<pre><code>public interface StudentService {
 
-    public Teacher getTeacher() {
-        return teacher;
-    }
+    public void addStudent(String name);
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
+}
+</code></pre><p>然后创建StudentServiceImp，实现了StudentService：</p>
+<pre><code>public class StudentServiceImp implements StudentService{
 
     @Override
-    public String toString() {
-        return &quot;Student [id=&quot; + id + &quot;, name=&quot; + name + &quot;, age=&quot; + age + &quot;, teacher=&quot; + teacher + &quot;]&quot;;
+    public void addStudent(String name) {
+        System.out.println(&quot;我要添加学生&quot; + name);
     }
 
 }
-</code></pre><p>然后配置spring的XML文件：</p>
+</code></pre><p>那现在我们要做的就是在执行addStudent函数前后，都要有log日志，但是这个函数的代码不能动了，这时候就要用到Spring之AOP了。</p>
+<p>首先创建一个Aspect：</p>
+<pre><code>public class StudentServiceAspect{
+
+    public void doBefore(JoinPoint jp){
+        System.out.println(jp.getTarget().getClass().getName() +  &quot;在执行方法&quot; + jp.getSignature().getName() + &quot;前，&quot; + &quot;参数为：&quot; + jp.getArgs()[0]);
+    }
+    public void doAfter(JoinPoint jp){
+        System.out.println(jp.getTarget().getClass().getName() +  &quot;在执行方法&quot; + jp.getSignature().getName() + &quot;后，&quot; + &quot;参数为：&quot; + jp.getArgs()[0]);
+    }
+
+}
+</code></pre><p>然后在spring的配置文件中写入了这个aspect,然后进行配置：</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;  
-         xmlns=&quot;http://www.springframework.org/schema/beans&quot;  
-         xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans 
-         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;
-         &gt; 
-      &lt;bean id = &quot;student&quot; class=&quot;com.gefufeng.bean.Student&quot;&gt;
-          &lt;property name=&quot;id&quot; value = &quot;1&quot;&gt;&lt;/property&gt;
-          &lt;property name=&quot;name&quot; value = &quot;xiaoge&quot;&gt;&lt;/property&gt;
-      &lt;/bean&gt;
+&lt;beans xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;
+    &lt;bean id = &quot;studentService&quot; class=&quot;com.gefufeng.service.imp.StudentServiceImp&quot;&gt;&lt;/bean&gt;
+    &lt;bean id = &quot;studentServiceAspect&quot; class=&quot;com.gefufeng.advice.StudentServiceAspect&quot;&gt;&lt;/bean&gt;
+    &lt;aop:config&gt;
+        &lt;aop:aspect id = &quot;studentServiceAspect&quot; ref=&quot;studentServiceAspect&quot;&gt;
+            &lt;aop:pointcut expression=&quot;execution(* com.gefufeng.service.*.*(..))&quot; id=&quot;businessService&quot;/&gt;
+            &lt;aop:before method=&quot;doBefore&quot; pointcut-ref=&quot;businessService&quot;/&gt;
+            &lt;aop:after method=&quot;doAfter&quot; pointcut-ref=&quot;businessService&quot;/&gt;
+        &lt;/aop:aspect&gt;
+
+    &lt;/aop:config&gt;
 &lt;/beans&gt; 
-</code></pre><p>然后再创建一个junit test case：</p>
+</code></pre><p>最后测试：</p>
 <pre><code>public class T {
 
     private ApplicationContext applicationContext;
-
 
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext(&quot;spring_config.xml&quot;);
     }
 
-
     @Test
     public void test() {
-        Student student = (Student) applicationContext.getBean(&quot;student&quot;);
-        System.out.println(student);
+        StudentService student = (StudentService) applicationContext.getBean(&quot;studentService&quot;);
+        student.addStudent(&quot;张三&quot;);
+    }
+
+
+}
+</code></pre><p>控制台输出：</p>
+<pre><code>com.gefufeng.service.imp.StudentServiceImp在执行方法addStudent前，参数为：张三
+com.gefufeng.service.imp.StudentServiceImp在执行方法addStudent后，参数为：张三
+</code></pre><p>然后是异常处理：</p>
+<p>在StudentServiceAspect中多加一个函数：</p>
+<pre><code>public class StudentServiceAspect{
+
+    public void doBefore(JoinPoint jp){
+        System.out.println(jp.getTarget().getClass().getName() +  &quot;在执行方法&quot; + jp.getSignature().getName() + &quot;前，&quot; + &quot;参数为：&quot; + jp.getArgs()[0]);
+    }
+    public void doAfter(JoinPoint jp){
+        System.out.println(jp.getTarget().getClass().getName() +  &quot;在执行方法&quot; + jp.getSignature().getName() + &quot;后，&quot; + &quot;参数为：&quot; + jp.getArgs()[0]);
+    }
+    public void doAfterThrowing(JoinPoint jp,Exception ex){
+        System.out.println(jp.getTarget().getClass().getName() +  &quot;在执行方法&quot; + jp.getSignature().getName() + &quot;时，&quot; + &quot;参数为：&quot; + jp.getArgs()[0] + &quot;,有异常，异常为：&quot; + ex.getMessage());
     }
 
 }
-</code></pre><p>然后运行你会发现控制台有下面的输出：</p>
-<pre><code>三月 22, 2016 2:49:51 下午     org.springframework.context.support.AbstractApplicationContext prepareRefresh
-信息: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7dc5e7b4: startup date [Tue Mar 22 14:49:51 CST 2016]; root of context hierarchy
-三月 22, 2016 2:49:51 下午 org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
-信息: Loading XML bean definitions from class path resource [spring_config.xml]
-Student [id=1, name=xiaoge, age=0, teacher=null]
-</code></pre><h2 id="属性注入"><a href="#属性注入" class="headerlink" title="属性注入"></a>属性注入</h2><p>对于属性注入在上面的demo中其实已经涉及到了，但是这只是基本属性注入，但如果是一个对象，或者list或者set或者map呢，如下：</p>
-<h3 id="bean注入"><a href="#bean注入" class="headerlink" title="bean注入"></a>bean注入</h3><pre><code>&lt;bean id=&quot;teacher&quot; class=&quot;com.gefufeng.bean.Teacher&quot;&gt;
-        &lt;property name=&quot;teacherId&quot; value=&quot;1&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;name&quot; value=&quot;葛老师&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-&lt;bean id=&quot;student3&quot; class=&quot;com.gefufeng.bean.Student&quot;&gt;
-        &lt;property name=&quot;id&quot; value=&quot;1&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;name&quot; value=&quot;xiaoge&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;teacher&quot; ref=&quot;teacher&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-</code></pre><p>这是最常见的一种bean注入方式</p>
-<h3 id="list注入"><a href="#list注入" class="headerlink" title="list注入"></a>list注入</h3><p>比如Student中多了一个List<string> hobbies,属性：</string></p>
-<pre><code>&lt;bean id=&quot;student3&quot; class=&quot;com.gefufeng.bean.Student&quot;&gt;
-        &lt;property name=&quot;id&quot; value=&quot;1&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;name&quot; value=&quot;xiaoge&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;teacher&quot; ref=&quot;teacher&quot;&gt;&lt;/property&gt;
-        &lt;property name=&quot;hobbies&quot;&gt;
-            &lt;list&gt;
-                &lt;value&gt;打球&lt;/value&gt;
-                &lt;value&gt;游泳&lt;/value&gt;
-                &lt;value&gt;旅游&lt;/value&gt;
-            &lt;/list&gt;
-        &lt;/property&gt;
-&lt;/bean&gt;
-</code></pre><p>set注入和map注入都非常类似</p>
-<h2 id="方法注入"><a href="#方法注入" class="headerlink" title="方法注入"></a>方法注入</h2><p>好吧，其实方法注入我也没用过</p>
+</code></pre><p>然后配置文件中：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans 
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;
+    &lt;bean id = &quot;studentService&quot; class=&quot;com.gefufeng.service.imp.StudentServiceImp&quot;&gt;&lt;/bean&gt;
+    &lt;bean id = &quot;studentServiceAspect&quot; class=&quot;com.gefufeng.advice.StudentServiceAspect&quot;&gt;&lt;/bean&gt;
+    &lt;aop:config&gt;
+        &lt;aop:aspect id = &quot;studentServiceAspect&quot; ref=&quot;studentServiceAspect&quot;&gt;
+            &lt;aop:pointcut expression=&quot;execution(* com.gefufeng.service.*.*(..))&quot; id=&quot;businessService&quot;/&gt;
+            &lt;aop:before method=&quot;doBefore&quot; pointcut-ref=&quot;businessService&quot;/&gt;
+            &lt;aop:after method=&quot;doAfter&quot; pointcut-ref=&quot;businessService&quot;/&gt;
+            &lt;aop:after-throwing method=&quot;doAfterThrowing&quot; pointcut-ref=&quot;businessService&quot; throwing=&quot;ex&quot;/&gt;
+        &lt;/aop:aspect&gt;
+
+    &lt;/aop:config&gt;
+&lt;/beans&gt; 
+</code></pre><p>在StudentServiceImp中写一个异常</p>
+<pre><code>public class StudentServiceImp implements StudentService{
+
+    @Override
+    public void addStudent(String name) {
+        System.out.println(1/0);
+        System.out.println(&quot;我要添加学生&quot; + name);
+    }
+
+}
+</code></pre><p>然后测试，控制台输出：</p>
+<pre><code>com.gefufeng.service.imp.StudentServiceImp在执行方法addStudent前，参数为：张三
+com.gefufeng.service.imp.StudentServiceImp在执行方法addStudent后，参数为：张三
+com.gefufeng.service.imp.StudentServiceImp在执行方法addStudent时，参数为：张三,有异常，异常为：/ by zero
+</code></pre><p>以上就是AOP的应用</p>
 
       
     </div>
@@ -435,13 +423,13 @@ Student [id=1, name=xiaoge, age=0, teacher=null]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/03/22/Spring之IOC/" rel="next" title="Spring之IOC">
+                <i class="fa fa-chevron-left"></i> Spring之IOC
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/23/Spring之AOP/" rel="prev" title="Spring之AOP">
-                Spring之AOP <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -572,7 +560,7 @@ Student [id=1, name=xiaoge, age=0, teacher=null]
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#装配一个bean"><span class="nav-number">1.</span> <span class="nav-text">装配一个bean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性注入"><span class="nav-number">2.</span> <span class="nav-text">属性注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bean注入"><span class="nav-number">2.1.</span> <span class="nav-text">bean注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list注入"><span class="nav-number">2.2.</span> <span class="nav-text">list注入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法注入"><span class="nav-number">3.</span> <span class="nav-text">方法注入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP简介"><span class="nav-number">1.</span> <span class="nav-text">AOP简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP应用"><span class="nav-number">2.</span> <span class="nav-text">AOP应用</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
